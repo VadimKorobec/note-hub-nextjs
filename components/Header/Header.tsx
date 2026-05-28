@@ -1,17 +1,20 @@
-import styles from './Header.module.css'
+import Link from "next/link";
+import styles from "./Header.module.css";
 
 const Header = () => {
-    return <header className={styles.header}>
-        <h2>NoteHub</h2>
-        <nav>
-            <ul className={styles.navigation}>
-                <li>Home</li>
-                <li>Notes</li>
-                <li>Profile</li>
-                <li>About</li>
-            </ul>
-        </nav>
+  return (
+    <header className={styles.header}>
+      <Link href='/' aria-label="Home">Note HUB</Link>
+      <nav aria-label="Main Navigation">
+        <ul className={styles.navigation}>
+          <Link href='/'>Home</Link>
+          <Link href='/notes'>Notes</Link>
+          <Link href='/profile'>Profile</Link>
+          <Link href='/about'>About</Link>
+        </ul>
+      </nav>
     </header>
-}
+  );
+};
 
 export default Header;
