@@ -1,9 +1,15 @@
+import NoteList from "@/components/NoteList/NoteList";
 import { getNotes } from "@/src/lib/api";
 
 const NotesPage = async () => {
-  const notes = await getNotes();
-  console.log(notes)
-  return <div>Notes page</div>;
+  const res = await getNotes();
+
+  return (
+    <section>
+      <h1>Notes List</h1>
+      {res.notes.length > 0 && <NoteList notes={res.notes} />}
+    </section>
+  );
 };
 
 export default NotesPage;
